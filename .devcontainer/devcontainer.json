@@ -1,0 +1,31 @@
+{
+  "name": "JazzCatalog V3.0 (Streamlit + SQLite)",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.linting.enabled": true,
+        "editor.formatOnSave": true
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "qwtel.sqlite-viewer",
+        "eamodio.gitlens"
+      ]
+    }
+  },
+  "forwardPorts": [8502],
+  "portsAttributes": {
+    "8502": {
+      "label": "Streamlit App",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "postCreateCommand": "pip install --no-cache-dir -r requirements.txt",
+  "remoteUser": "vscode"
+}
